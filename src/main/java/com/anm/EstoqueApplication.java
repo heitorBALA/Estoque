@@ -1,4 +1,4 @@
-package com.anm.estoque;
+package com.anm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

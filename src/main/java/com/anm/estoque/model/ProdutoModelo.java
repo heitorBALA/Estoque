@@ -17,5 +17,9 @@ public class ProdutoModelo {
     private Double preco;
     private String modelo;
     private String descricao;
+    public void setQuantidade(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setQuantidade'");
+    }
     
 }
