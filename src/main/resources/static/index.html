@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerenciamento de Estoque</h1>
+            <p>Sistema de controle de produtos</p>
+        </header>
+
+        <main>
+            <!-- Section: List Products -->
+            <section id="list-section" class="card">
+                <div class="card-header">
+                    <h2>Lista de Produtos</h2>
+                    <button id="btn-refresh" class="btn-icon" title="Atualizar Lista">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="products-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Modelo</th>
+                                <th>Preço</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Products will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="grid-2">
+                <!-- Section: Create Product -->
+                <section id="create-section" class="card">
+                    <h2>Cadastrar Produto</h2>
+                    <form id="create-form">
+                        <div class="form-group">
+                            <label for="create-nome">Nome</label>
+                            <input type="text" id="create-nome" required placeholder="Ex: Notebook Gamer">
+                        </div>
+                        <div class="form-group">
+                            <label for="create-modelo">Modelo</label>
+                            <input type="text" id="create-modelo" required placeholder="Ex: Dell G15">
+                        </div>
+                        <div class="form-group">
+                            <label for="create-preco">Preço (R$)</label>
+                            <input type="number" id="create-preco" step="0.01" required placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="create-descricao">Descrição</label>
+                            <textarea id="create-descricao" rows="3" placeholder="Detalhes do produto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Cadastrar</button>
+                    </form>
+                </section>
+
+                <!-- Section: Search & Update -->
+                <div class="flex-col">
+                    <section id="search-section" class="card">
+                        <h2>Buscar Produto</h2>
+                        <div class="search-box">
+                            <input type="number" id="search-id" placeholder="ID do Produto">
+                            <button id="btn-search" class="btn-secondary">Buscar</button>
+                        </div>
+                        <div id="search-result" class="hidden">
+                            <!-- Search result details -->
+                        </div>
+                    </section>
+
+                    <section id="update-section" class="card hidden">
+                        <h2>Alterar Produto <span id="update-id-display"></span></h2>
+                        <form id="update-form">
+                            <input type="hidden" id="update-id">
+                            <div class="form-group">
+                                <label for="update-nome">Nome</label>
+                                <input type="text" id="update-nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="update-modelo">Modelo</label>
+                                <input type="text" id="update-modelo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="update-preco">Preço</label>
+                                <input type="number" id="update-preco" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="update-descricao">Descrição</label>
+                                <textarea id="update-descricao" rows="2"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Salvar Alterações</button>
+                                <button type="button" id="btn-cancel-update" class="btn-text">Cancelar</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Sistema de Estoque</p>
+        </footer>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
